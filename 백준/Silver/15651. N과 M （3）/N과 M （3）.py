@@ -1,18 +1,16 @@
 import sys
 
 n, m = map(int, sys.stdin.readline().split())
+result = []
 
-s = []
-chk = [False for _ in range(n)]
 
-def dfs(depth):
-  if depth == m:
-    print(' '.join(map(str,s)))
-    return
+def permutation(depth):
+    if depth == m:
+        print(' '.join(map(str, result)))
+        return
+    for i in range(1, n+1):
+        result.append(i)
+        permutation(depth+1)
+        result.pop()
 
-  for i in range(1,n+1):
-    s.append(i)
-    dfs(depth+1)
-    s.pop()
-
-dfs(0)
+permutation(0)
