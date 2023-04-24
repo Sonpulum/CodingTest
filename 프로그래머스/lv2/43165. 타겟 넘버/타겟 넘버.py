@@ -1,8 +1,10 @@
+from collections import deque
+
 def solution(numbers, target):
     answer = 0
     l = len(numbers)
     
-    stack = []
+    stack = deque()
     stack.append((-numbers[0],0))
     stack.append((numbers[0],0))
     
